@@ -1,0 +1,6 @@
+#
+# Custom Init Script File for CoCore-x
+#
+
+on post-fs
+    export LD_PRELOAD libdrmfix.so
