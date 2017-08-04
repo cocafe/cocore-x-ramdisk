@@ -16,8 +16,6 @@ NO_DRMFIX=/system/libdrmfix_no
 
 exec >> ${LOG} 2>&1
 
-mount -o rw,remount /system
-
 if ! [ -e ${LIB_DRMFIX} ]; then
   echo "install libdrmfix.so"
   cp ${INS_DRMFIX} ${LIB_DRMFIX}
@@ -33,8 +31,6 @@ if ! [ -e ${LIB_DRMFIX64} ]; then
   chmod 0644 ${LIB_DRMFIX64}
   chcon u:object_r:system_file:s0 ${LIB_DRMFIX64}
 fi
-
-mount -o ro,remount /system
 
 # Save RAM in initramfs
 rm -fr ${DIR_DRMFIX}
