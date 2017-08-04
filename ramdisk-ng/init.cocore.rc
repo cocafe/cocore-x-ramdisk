@@ -12,3 +12,6 @@ on post-fs
 
 on property:ro.libdrmfix.load=1
     export LD_PRELOAD libdrmfix.so
+
+on property:dev.bootcomplete=1
+    exec /system/bin/sh /sbin/init.cocore.post-boot.sh
