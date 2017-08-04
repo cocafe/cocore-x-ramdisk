@@ -13,5 +13,11 @@ on post-fs
 on property:ro.libdrmfix.load=1
     export LD_PRELOAD libdrmfix.so
 
-on property:dev.bootcomplete=1
-    exec /system/bin/sh /sbin/init.cocore.post-boot.sh
+on property:sys.boot_completed=1
+    start cocore_post-boot
+
+service cocore_post-boot /system/bin/sh /sbin/init.cocore.post_boot.sh
+    class late_start
+    user root
+    disabled
+    oneshot
