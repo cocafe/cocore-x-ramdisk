@@ -1,6 +1,8 @@
 #!/system/bin/sh
 
-LOG=/tmp/init.log
+export PATH=/system/bin
+
+LOG=/init.log
 
 DIR_DRMFIX=/lib/libdrmfix
 
