@@ -3,4 +3,7 @@
 #
 
 on post-fs
+    exec /system/bin/sh /sbin/install-libdrmfix.sh
+
+on property:ro.libdrmfix.load=1
     export LD_PRELOAD libdrmfix.so
