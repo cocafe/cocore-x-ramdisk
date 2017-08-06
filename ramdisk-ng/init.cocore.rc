@@ -13,8 +13,10 @@ on post-fs
 on property:ro.libdrmfix.load=1
     export LD_PRELOAD libdrmfix.so
 
-on property:sys.boot_completed=1
+on property:init.svc.qcom-post-boot=stopped
     start cocore_post-boot
+
+on property:sys.boot_completed=1
     start cocore_init-d
 
 service cocore_post-boot /system/bin/sh /sbin/init.cocore.post_boot.sh
