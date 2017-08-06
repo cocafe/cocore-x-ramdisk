@@ -42,7 +42,7 @@ on early-boot
 
 on boot
     # Install exfat module to support exfat file system
-    insmod /system/lib/modules/texfat.ko
+    #insmod /system/lib/modules/texfat.ko
 
     # Disable C_A_D
     write /proc/sys/kernel/ctrl-alt-del 0
