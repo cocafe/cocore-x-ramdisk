@@ -3,11 +3,7 @@
 #
 
 on post-fs
-    # /system mount as read-only by default
-    # In order to avoid some lock conditions in script execution
-    # mount /system rw always
-    exec /system/bin/sh /sbin/init.cocore.post_fs.sh
-
+    # Install and check libdrmfix.so
     exec /system/bin/sh /sbin/install-libdrmfix.sh
 
 on property:ro.libdrmfix.load=1
