@@ -53,9 +53,9 @@ on init
     
 
 on fs
-    insmod /system/lib/modules/ecryptfs.ko
+    insmod /lib/modules/ecryptfs.ko
 
-    insmod /system/lib/modules/kscl.ko
+    insmod /lib/modules/kscl.ko
 
     # mount LTA-Label here as from Kitakami the mount path is changed.
     mkdir /lta-label 0555 system system
@@ -65,9 +65,9 @@ on fs
     chmod 0555 /lta-label
 
     # Load BRCM V4L2 drivers
-    insmod /system/lib/modules/brcm_hci_ldisc.ko
-    insmod /system/lib/modules/brcm_bt_drv.ko
-    insmod /system/lib/modules/fm_drv.ko
+    insmod /lib/modules/brcm_hci_ldisc.ko
+    insmod /lib/modules/brcm_bt_drv.ko
+    insmod /lib/modules/fm_drv.ko
 
     # Bluetooth address setting
     setprop ro.bt.bdaddr_path "/data/etc/bluetooth_bdaddr"
