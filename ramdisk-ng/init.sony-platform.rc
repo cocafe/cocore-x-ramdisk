@@ -227,7 +227,7 @@ on early-boot
     start mlog_qmi_service
 
     # Load WLAN driver
-    insmod /system/lib/modules/bcmdhd.ko
+    insmod /lib/modules/bcmdhd.ko
 
     # Debug config for clearpad
     
