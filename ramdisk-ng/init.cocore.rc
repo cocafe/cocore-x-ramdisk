@@ -14,8 +14,8 @@ on property:ro.libdrmfix.load=1
 on property:init.svc.qcom-post-boot=stopped
     start cocore_post-boot
 
-# on property:sys.boot_completed=1
-#     start cocore_init-d
+on property:sys.boot_completed=1
+    start cocore_init-d
 
 service cocore_post-boot /system/bin/sh /sbin/init.cocore.post_boot.sh
     class late_start
