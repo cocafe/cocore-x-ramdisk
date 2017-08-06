@@ -22,7 +22,7 @@ execute_recursive()
     if [ -d $i ]; then
       execute_recursive $i
     elif [ -x $i ]; then
-      echo "init.d: exec " $i
+      echo "init.d: exec" $i
       /system/bin/sh $i
     fi
   done
