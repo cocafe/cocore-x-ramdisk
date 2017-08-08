@@ -6,8 +6,6 @@ on post-fs
     # Install and check libdrmfix.so
     exec /system/bin/sh /sbin/install-libdrmfix.sh
 
-    exec /system/bin/sh /sbin/init.cocore.post_fs.sh
-
 on property:ro.libdrmfix.load=1
     export LD_PRELOAD libdrmfix.so
 

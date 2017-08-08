@@ -58,6 +58,9 @@ on fs
     # SONY: notify the service that starts the graphics to stop.
     exec u:r:fsckwait:s0 system -- /sbin/fsckwait e
 
+    # Bind module directory
+    exec /system/bin/sh /sbin/init.cocore.bind_mod.sh
+
     # SONY: setup idd and rca partition
     chown idd idd /idd
     chmod 0751 /idd
