@@ -6,6 +6,14 @@ on post-fs
     # Install and check libdrmfix.so
     exec /system/bin/sh /sbin/install-libdrmfix.sh
 
+on boot
+    # Set Permission for /dev/*random
+    chmod 0666 /dev/random
+    chmod 0666 /dev/urandom
+    chmod 0666 /dev/erandom
+    chmod 0666 /dev/frandom
+    chmod 0666 /dev/hw_random
+
 on property:ro.libdrmfix.load=1
     export LD_PRELOAD libdrmfix.so
 
