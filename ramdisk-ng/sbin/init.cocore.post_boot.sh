@@ -51,3 +51,7 @@ echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
 # Block queue scheduler
 echo row > /sys/block/mmcblk0/queue/scheduler
 echo row > /sys/block/mmcblk1/queue/scheduler
+
+# Mount world-writable ramfs for file-cache in ram
+mkdir -p /ram
+mount -t ramfs -o mode=0777 ramfs /ram
