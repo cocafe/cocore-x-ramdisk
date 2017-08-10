@@ -47,3 +47,7 @@ echo 10000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
 echo 10000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
 echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
 echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
+
+# Block queue scheduler
+echo row > /sys/block/mmcblk0/queue/scheduler
+echo row > /sys/block/mmcblk1/queue/scheduler

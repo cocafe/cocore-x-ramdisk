@@ -506,7 +506,7 @@ service apfd /system/bin/apfd
     group system
 
 on property:sys.boot_completed=1
-   write /sys/class/block/mmcblk1/queue/scheduler cfq
+#  write /sys/class/block/mmcblk1/queue/scheduler cfq
    write /sys/class/block/mmcblk1/bdi/max_ratio 1
 
 

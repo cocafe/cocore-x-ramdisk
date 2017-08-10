@@ -2,6 +2,10 @@
 # Custom Init Script File for CoCore-x
 #
 
+on early-fs
+    # Set block queue scheduler to noop to get more throughput
+    write /sys/block/mmcblk0/queue/scheduler noop
+
 on post-fs
     # Install and check libdrmfix.so
     exec /system/bin/sh /sbin/install-libdrmfix.sh
