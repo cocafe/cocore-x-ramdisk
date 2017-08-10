@@ -1658,7 +1658,7 @@ case "$target" in
     ;;
     "msm8952")
         rm /data/system/perfd/default_values
-        start perfd
+        # start perfd
     ;;
     "msm8974")
         start mpdecision
