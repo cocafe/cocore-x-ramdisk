@@ -55,3 +55,6 @@ echo row > /sys/block/mmcblk1/queue/scheduler
 # Mount world-writable ramfs for file-cache in ram
 mkdir -p /ram
 mount -t ramfs -o mode=0777 ramfs /ram
+
+# Symlink install /sbin/busybox for su shell
+/sbin/busybox --install -s /sbin
