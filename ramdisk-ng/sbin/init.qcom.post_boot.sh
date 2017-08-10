@@ -1221,7 +1221,7 @@ case "$target" in
                 echo 0 > /proc/sys/kernel/sched_boost
 
                 # Override with SOMC tuning parameters for governor
-                /system/bin/sh /system/etc/init.sony.cpu_parameter_gov.sh
+                #/system/bin/sh /system/etc/init.sony.cpu_parameter_gov.sh
 
                 # Bring up all cores online
                 echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -1303,7 +1303,7 @@ case "$target" in
                 echo 1 > /proc/sys/kernel/power_aware_timer_migration
 
                 # Override with SOMC tuning parameters for scheduler and others
-                /system/bin/sh /system/etc/init.sony.cpu_parameter.sh
+                #/system/bin/sh /system/etc/init.sony.cpu_parameter.sh
 
 		case "$soc_id" in
 			"277" | "278")
