@@ -994,14 +994,6 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     user system
     group system
 
-# service for USER
-service LKCore-rel /system/vendor/bin/LKCore
-    class late_start
-    oneshot
-    disabled
-    user system
-    group system log qcom_diag
-
 # Coresight early boot service
 service cs-early-boot /system/bin/sh /persist/coresight/qdss.agent.sh early-boot /system/etc/init.qcom.debug.sh
     class core
