@@ -112,3 +112,8 @@ mount -t ramfs -o mode=0777 ramfs /ram
 
 # TCP fastopen
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
+
+# VM tweaks
+echo 33 > /proc/sys/vm/vfs_cache_pressure
+echo 90 > /proc/sys/vm/dirty_ratio
+echo 120 > /proc/sys/vm/swappiness
