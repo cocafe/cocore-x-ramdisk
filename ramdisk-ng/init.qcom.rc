@@ -994,14 +994,6 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     user system
     group system
 
-# service for USERDEBUG
-service LKCore-dbg /system/vendor/bin/LKCore
-    class late_start
-    oneshot
-    disabled
-    user root
-    group root system log qcom_diag
-
 # service for USER
 service LKCore-rel /system/vendor/bin/LKCore
     class late_start
