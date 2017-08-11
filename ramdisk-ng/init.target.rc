@@ -140,10 +140,10 @@ service qseecomd /system/bin/qseecomd
 #   user system
 #   group system net_raw
 
-service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   disabled
+# service perfd /system/vendor/bin/perfd
+#    class main
+#    user root
+#    disabled
 
 service seempd /system/bin/seempd
    class late_start
