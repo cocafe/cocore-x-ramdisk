@@ -9,6 +9,12 @@ if [ -e ${LOG} ]; then
   chmod 0644 ${LOG}
 fi
 
+# Remove splash logo to save some memory
+BOOTLOGO=/res/logo.raw
+if [ -f ${BOOTLOGO} ]; then
+  rm ${BOOTLOGO}
+fi
+
 #
 # CPUFreq Settings: board: msm8952, soc_id: 266
 #
