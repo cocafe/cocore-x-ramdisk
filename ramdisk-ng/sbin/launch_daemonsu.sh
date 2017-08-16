@@ -3,8 +3,8 @@
 MODE=$1
 
 log_print() {
-  echo "($MODE) $1"
-  echo "($MODE) $1" >> /dev/.launch_daemonsu.log
+  echo "launch_daemonsu: ($MODE) $1"
+  echo "launch_daemonsu: ($MODE) $1" >> /init.log
   log -p i -t launch_daemonsu "($MODE) $1"
 }
 
