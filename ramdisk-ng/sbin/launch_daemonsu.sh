@@ -77,9 +77,6 @@ if [ ! -f "/data/su.img" ] && [ ! -f "/cache/su.img" ]; then
   if [ ! -f "/data/su.img"]; then
     log_print "extracting su.img from ramdisk failed"
   fi
-
-  # Save some memory in rootfs
-  rm /lib/supersu/su.img.xz
 fi
 
 if [ ! -d "/su/bin" ]; then

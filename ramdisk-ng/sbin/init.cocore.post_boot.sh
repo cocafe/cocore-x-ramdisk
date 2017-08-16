@@ -15,6 +15,9 @@ if [ -f ${BOOTLOGO} ]; then
   rm ${BOOTLOGO}
 fi
 
+# Remove su.img.xz to save some memory
+rm /lib/supersu/su.img.xz
+
 #
 # CPUFreq Settings: board: msm8952, soc_id: 266
 #
