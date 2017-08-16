@@ -106,8 +106,8 @@ start perfd
 #
 
 # Block queue scheduler
-echo row > /sys/block/mmcblk0/queue/scheduler
-echo row > /sys/block/mmcblk1/queue/scheduler
+echo fiops > /sys/block/mmcblk0/queue/scheduler
+echo fiops > /sys/block/mmcblk1/queue/scheduler
 
 # Mount world-writable ramfs for file-cache in ram
 mkdir -p /ram
