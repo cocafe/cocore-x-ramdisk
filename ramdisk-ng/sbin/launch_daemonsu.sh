@@ -68,6 +68,20 @@ resize() {
 
 REBOOT=false
 
+# install su.img in ramdisk if not exists
+if [ ! -f "/data/su.img" ] && [ ! -f "/cache/su.img" ]; then
+  log_print "su.img not exists, try to extract the one in ramdisk"
+
+  /sbin/busybox xz -d -c /lib/supersu/su.img.xz > /data/su.img
+
+  if [ ! -f "/data/su.img"]; then
+    log_print "extracting su.img from ramdisk failed"
+  fi
+
+  # Save some memory in rootfs
+  rm /lib/supersu/su.img.xz
+fi
+
 if [ ! -d "/su/bin" ]; then
   # not mounted yet, and doesn't exist already, merge
   log_print "/su not mounted yet"
