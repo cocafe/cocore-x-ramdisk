@@ -87,8 +87,8 @@ if [ ! -d "/su/bin" ]; then
   log_print "/su not mounted yet"
 
   # copy boot image backups
-  log_print "copying boot image backups from /cache to /data"
-  cp -f /cache/stock_boot_* /data/. 2>/dev/null
+  # log_print "copying boot image backups from /cache to /data"
+  # cp -f /cache/stock_boot_* /data/. 2>/dev/null
 
   if [ -f "/data/su.img" ]; then
     log_print "/data/su.img found"
