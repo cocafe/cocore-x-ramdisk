@@ -36,8 +36,8 @@ import init.sony-device.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    insmod /system/lib/modules/qcrypto_module.ko
-    insmod /system/lib/modules/qdrbg_module.ko
+    insmod /lib/modules/qcrypto_module.ko
+    insmod /lib/modules/qdrbg_module.ko
 
 on init
     # start qfintverify
