@@ -67,6 +67,7 @@ on fs
     # Load BRCM V4L2 drivers
     insmod /system/lib/modules/brcm_hci_ldisc.ko
     insmod /system/lib/modules/brcm_bt_drv.ko
+    insmod /system/lib/modules/ant_drv.ko
     insmod /system/lib/modules/fm_drv.ko
 
     # Bluetooth address setting
