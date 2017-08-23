@@ -30,13 +30,13 @@ debug.atrace.tags.enableflags=0
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
-ro.bootimage.build.date=Mon Jun 26 16:32:54 JST 2017
-ro.bootimage.build.date.utc=1498462374
-ro.bootimage.build.fingerprint=Sony/kugo/kugo:7.1.1/LOIRE-1.1.1-170626-0713/1:user/dev-keys
+ro.bootimage.build.date=Fri Jul 28 02:42:16 JST 2017
+ro.bootimage.build.date.utc=1501177336
+ro.bootimage.build.fingerprint=Sony/kugo/kugo:7.1.1/LOIRE-1.1.1-170727-1721/1:user/dev-keys
 #
 # VERSION_PROPERTIES
 #
 ro.semc.version.sw=1302-7793
-ro.semc.version.sw_revision=34.3.A.0.206
+ro.semc.version.sw_revision=34.3.A.0.217
 ro.semc.version.sw_variant=GLOBAL-LTE2A
 ro.semc.version.sw_type=user
