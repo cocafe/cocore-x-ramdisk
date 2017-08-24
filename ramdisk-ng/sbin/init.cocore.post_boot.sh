@@ -117,7 +117,7 @@ mkdir -p /ram
 mount -t ramfs -o mode=0777 ramfs /ram
 
 # Symlink install /sbin/busybox for su shell
-/sbin/busybox --install -s /sbin
+#/sbin/busybox --install -s /sbin
 
 # TCP fastopen
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
