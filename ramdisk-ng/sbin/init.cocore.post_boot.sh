@@ -118,7 +118,7 @@ start perfd
 
 # CPUQuiet Governor Settings
 echo 2 > /sys/devices/system/cpu/cpuquiet/nr_min_cpus
-echo rqbalance > /sys/devices/system/cpu/cpuquiet/available_governors
+echo rqbalance > /sys/devices/system/cpu/cpuquiet/current_governor
 
 #
 # CPUFreq Settings: end
