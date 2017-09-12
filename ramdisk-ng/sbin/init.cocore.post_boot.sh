@@ -135,7 +135,7 @@ mount -t ramfs -o mode=0777 ramfs /ram
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
 
 # VM tweaks
-echo 1 > /proc/sys/vm/vfs_cache_pressure
+echo 20 > /proc/sys/vm/vfs_cache_pressure
 echo 90 > /proc/sys/vm/dirty_ratio
 
 # CFS Scheduler Knobs
