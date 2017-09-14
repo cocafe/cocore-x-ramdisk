@@ -129,9 +129,13 @@ echo rqbalance > /sys/devices/system/cpu/cpuquiet/current_governor
 # CPUFreq Settings: end
 #
 
-# Block queue scheduler
-echo fiops > /sys/block/mmcblk0/queue/scheduler
-echo fiops > /sys/block/mmcblk1/queue/scheduler
+# Block Queue Scheduler
+echo cfq > /sys/block/mmcblk0/queue/scheduler
+echo cfq > /sys/block/mmcblk1/queue/scheduler
+
+# Let CFQ decide lowest latency by kernel HZ
+echo 0 > /sys/block/mmcblk0/queue/iosched/target_latency
+echo 0 > /sys/block/mmcblk1/queue/iosched/target_latency
 
 # Mount world-writable ramfs for file-cache in ram
 mkdir -p /ram
