@@ -151,6 +151,3 @@ echo 90 > /proc/sys/vm/dirty_ratio
 echo 1000000 > /proc/sys/kernel/sched_latency_ns
 echo 100000 > /proc/sys/kernel/sched_min_granularity_ns
 echo 25000 > /proc/sys/kernel/sched_wakeup_granularity_ns
-
-# System UI Sched FIFO Class
-#setprop sys.use_fifo_ui 1
