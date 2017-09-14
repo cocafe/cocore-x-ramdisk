@@ -38,8 +38,8 @@ rm -fr ${DIR_DRMFIX}
 # Check libdrmfix disable status
 if [ -e ${NO_DRMFIX} ]; then
   echo "libdrmfix disabled by user"
-  setprop ro.libdrmfix.load 0
+  /system/bin/setprop sys.libdrmfix.load 0
 else
   echo "libdrmfix enabled"
-  setprop ro.libdrmfix.load 1
+  /system/bin/setprop sys.libdrmfix.load 1
 fi
