@@ -18,6 +18,11 @@ fi
 # Remove su.img.xz to save some memory
 rm /lib/supersu/su.img.xz
 
+# Trim filesystems
+/sbin/busybox fstrim -v /data
+/sbin/busybox fstrim -v /cache
+/sbin/busybox fstrim -v /system
+
 #
 # CPUFreq Settings: board: msm8952, soc_id: 266
 #
