@@ -152,6 +152,6 @@ echo 33 > /proc/sys/vm/vfs_cache_pressure
 echo 90 > /proc/sys/vm/dirty_ratio
 
 # CFS Scheduler Knobs
-echo 1000000 > /proc/sys/kernel/sched_latency_ns
-echo 100000 > /proc/sys/kernel/sched_min_granularity_ns
-echo 25000 > /proc/sys/kernel/sched_wakeup_granularity_ns
+# echo 1000000 > /proc/sys/kernel/sched_latency_ns
+# echo 100000 > /proc/sys/kernel/sched_min_granularity_ns
+# echo 25000 > /proc/sys/kernel/sched_wakeup_granularity_ns
