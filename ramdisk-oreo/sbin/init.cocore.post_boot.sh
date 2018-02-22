@@ -130,9 +130,6 @@ do
   echo -n enable > $mode
 done
 
-# Start Perfd service
-start perfd
-
 # CPUQuiet Governor Settings
 if [ -e /sys/devices/system/cpu/cpuquiet ]; then
   echo 4 > /sys/devices/system/cpu/cpuquiet/nr_min_cpus
