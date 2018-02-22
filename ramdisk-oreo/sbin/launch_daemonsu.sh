@@ -118,8 +118,8 @@ resize() {
 REBOOT=false
 
 # install su.img to /data if not exists
-if [ ! -f /data/su.img ] && [ ! -f /cache/su.img ]; then
-  log_print "su.img has not installed to system, install it from ramdisk"
+if [ ! -f /data/su.img ]; then
+  log_print "su.img has not installed to userdata, install it from ramdisk"
 
   /sbin/busybox xz -d -c /lib/supersu/su.img.xz > /data/su.img
 
