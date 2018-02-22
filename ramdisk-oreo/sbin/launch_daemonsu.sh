@@ -112,6 +112,22 @@ resize() {
 
 REBOOT=false
 
+# install su.img to /data if not exists
+if [ ! -f /data/su.img ] && [ ! -f /cache/su.img ]; then
+  log_print "su.img has not installed to system, install it from ramdisk"
+
+  /sbin/busybox xz -d -c /lib/supersu/su.img.xz > /data/su.img
+
+  if [ ! -f /data/su.img ]; then
+    log_print "failed to extract su.img to userdata"
+  fi
+fi
+
+# remove su.img in ramdisk to save a bit memory
+if [ -e /lib/supersu/su.img.xz ]; then
+  rm /lib/supersu/su.img.xz
+fi
+
 # copy boot image backups
 log_print "copying boot image backups from /cache to /data"
 cp -f /cache/stock_boot_* /data/. 2>/dev/null
