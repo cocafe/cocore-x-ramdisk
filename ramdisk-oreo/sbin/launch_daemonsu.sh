@@ -129,8 +129,8 @@ if [ -e /lib/supersu/su.img.xz ]; then
 fi
 
 # copy boot image backups
-log_print "copying boot image backups from /cache to /data"
-cp -f /cache/stock_boot_* /data/. 2>/dev/null
+# log_print "copying boot image backups from /cache to /data"
+# cp -f /cache/stock_boot_* /data/. 2>/dev/null
 
 if ($SBIN); then
   if [ -d "/data/supersu_install" ] || [ -d "/cache/supersu_install" ]; then
