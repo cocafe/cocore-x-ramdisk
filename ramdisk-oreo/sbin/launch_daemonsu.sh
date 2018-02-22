@@ -2,6 +2,11 @@
 
 MODE=$1
 
+if [ ! -e /init.log ]; then
+  touch /init.log
+  chmod 0644 /init.log
+fi
+
 log_print() {
   echo "($MODE) $1"
   echo "launch_daemonsu: $(MODE) $1" >> /init.log
@@ -462,8 +467,8 @@ if [ "$MODE" != "post-fs-data" ]; then
   log_print "exec daemonsu"
 
   # save log to file
-  logcat -d | grep "launch_daemonsu" >> $LOGFILE
-  chmod 0644 $LOGFILE
+  # logcat -d | grep "launch_daemonsu" >> $LOGFILE
+  # chmod 0644 $LOGFILE
 
   # go
   exec $DAEMONSU --auto-daemon
@@ -496,6 +501,6 @@ else
   log_print "end"
 
   # save log to file
-  logcat -d | grep "launch_daemonsu" >> $LOGFILE
-  chmod 0644 $LOGFILE
+  # logcat -d | grep "launch_daemonsu" >> $LOGFILE
+  # chmod 0644 $LOGFILE
 fi
