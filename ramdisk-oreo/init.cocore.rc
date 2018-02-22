@@ -1,0 +1,47 @@
+#
+# Custom Init Script File for CoCore-x
+#
+
+on early-fs
+    # Set block queue scheduler to noop to get more throughput
+    write /sys/block/mmcblk0/queue/scheduler noop
+
+on post-fs
+    start cocore_drm-fix
+
+on boot
+    # Set Permission for /dev/*random
+    chmod 0666 /dev/random
+    chmod 0666 /dev/urandom
+    chmod 0666 /dev/erandom
+    chmod 0666 /dev/frandom
+    chmod 0666 /dev/hw_random
+
+on property:sys.libdrmfix.load=1
+    export LD_PRELOAD libdrmfix.so
+
+on property:init.svc.qcom-post-boot=stopped
+    start cocore_post-boot
+
+on property:sys.boot_completed=1
+    start cocore_init-d
+
+service cocore_drm-fix /system/bin/sh /sbin/install-libdrmfix.sh
+    seclabel u:r:supersu:s0
+    user root
+    disabled
+    oneshot
+
+service cocore_post-boot /system/bin/sh /sbin/init.cocore.post_boot.sh
+    seclabel u:r:supersu:s0
+    class late_start
+    user root
+    disabled
+    oneshot
+
+service cocore_init-d /system/bin/sh /sbin/init.cocore.init-d.sh
+    seclabel u:r:supersu:s0
+    class late_start
+    user root
+    disabled
+    oneshot
