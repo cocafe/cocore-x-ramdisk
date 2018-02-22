@@ -15,9 +15,6 @@ if [ -f ${BOOTLOGO} ]; then
   rm ${BOOTLOGO}
 fi
 
-# Remove su.img.xz to save some memory
-rm /lib/supersu/su.img.xz
-
 # Trim filesystems
 /sbin/busybox fstrim -v /data
 /sbin/busybox fstrim -v /cache
