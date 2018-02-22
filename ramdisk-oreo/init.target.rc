@@ -49,10 +49,16 @@ on fs
     mkdir /qns 0750 qns qns
 
     mount_all fstab.qcom
+
     # change the compression algorithm for zRAM
     write /sys/block/zram0/comp_algorithm lz4
+
     swapon_all fstab.qcom
+
     write /proc/sys/vm/swappiness 100
+
+    # Bind kernel modules over system library
+    exec u:r:supersu:s0 -- /system/bin/sh /sbin/init.cocore.bind_mod.sh
 
     # SONY: notify the service that starts the graphics to stop.
     exec u:r:fsckwait:s0 system -- /sbin/fsckwait e
