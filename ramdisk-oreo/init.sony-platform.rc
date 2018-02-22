@@ -358,11 +358,11 @@ service ssuiccd /system/bin/ssuiccd
     socket ssuiccd stream 0666 smartcard smartcard
 
 # Start RIC
-service ric /sbin/ric
-    user root
-    group root drmrpc trimarea system
-    class main
-    seclabel u:r:ric:s0
+# service ric /sbin/ric
+#     user root
+#     group root drmrpc trimarea system
+#     class main
+#     seclabel u:r:ric:s0
 
 # Secure Clock service
 service scd /system/bin/scd
