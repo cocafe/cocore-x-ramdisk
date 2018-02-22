@@ -4,6 +4,7 @@ MODE=$1
 
 log_print() {
   echo "($MODE) $1"
+  echo "launch_daemonsu: $(MODE) $1" >> /init.log
   log -p i -t launch_daemonsu "($MODE) $1"
 }
 
@@ -49,7 +50,7 @@ else
   SBIN=false
   SUFILES=/su
   DAEMONSU=/su/bin/daemonsu
-  LOGFILE=/dev/.launch_daemonsu.log
+  LOGFILE=/init.log
 
   # cleanup /sbin mode
   rm -rf /data/adb/su
@@ -445,7 +446,7 @@ if [ "$MODE" != "post-fs-data" ]; then
   log_print "exec daemonsu"
 
   # save log to file
-  logcat -d | grep "launch_daemonsu" > $LOGFILE
+  logcat -d | grep "launch_daemonsu" >> $LOGFILE
   chmod 0644 $LOGFILE
 
   # go
@@ -479,6 +480,6 @@ else
   log_print "end"
 
   # save log to file
-  logcat -d | grep "launch_daemonsu" > $LOGFILE
+  logcat -d | grep "launch_daemonsu" >> $LOGFILE
   chmod 0644 $LOGFILE
 fi
