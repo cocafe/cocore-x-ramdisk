@@ -34,7 +34,7 @@ on boot
     write /proc/sys/kernel/ctrl-alt-del 0
 
     # Install exfat module to support exfat file system
-    insmod /system/lib/modules/texfat.ko
+    # insmod /system/lib/modules/texfat.ko
 
     # Configure coredumps
     
