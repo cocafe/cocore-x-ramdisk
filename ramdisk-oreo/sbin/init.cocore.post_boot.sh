@@ -51,13 +51,13 @@ done
 # RCU threads: Set affinity (offload) to power cluster
 for i in {0,1,2,3,4,5}; do
   RCU_PID=`ps | grep "rcuop/$i" | cut -b 11-16`
-  taskset -a -p 0f ${RCU_PID}
+  taskset -a -p 01 ${RCU_PID}
 
   RCU_PID=`ps | grep "rcuob/$i" | cut -b 11-16`
-  taskset -a -p 0f ${RCU_PID}
+  taskset -a -p 01 ${RCU_PID}
 
   RCU_PID=`ps | grep "rcuos/$i" | cut -b 11-16`
-  taskset -a -p 0f ${RCU_PID}
+  taskset -a -p 01 ${RCU_PID}
 done
 
 # Set cpu_boost parameters
