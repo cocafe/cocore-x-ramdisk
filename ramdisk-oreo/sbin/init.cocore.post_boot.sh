@@ -59,22 +59,22 @@ echo 0 > /sys/devices/system/cpu/cpu4/sched_mostly_idle_freq
 echo 200000 > /proc/sys/kernel/sched_freq_inc_notify
 
 # CPU Governor Settings: power cluster
-echo 19000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
-echo 1017600 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
-echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
-echo 10000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
-echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
-echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+echo 19000    > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
+echo 1017600  > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+echo 1        > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
+echo 20000    > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
+echo 90       > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+echo 10000    > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
+echo 40000    > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
 
 # CPU Governor Settings: perf cluster
 echo "19000 1382400:39000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
-echo 1382400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
-echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
+echo 1382400  > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
+echo 1        > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
+echo 40000    > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
 echo "90 1747200:80" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
-echo 10000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
-echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
+echo 10000    > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
+echo 40000    > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
 
 # MSM Core Control Settings
 if [ -e /system/lib/modules/core_ctl.ko ]; then
@@ -83,12 +83,12 @@ if [ -e /system/lib/modules/core_ctl.ko ]; then
   # Power cluster
 
   # Perf cluster
-  echo 2 >   /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-  echo 4 >   /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
-  echo 68 >  /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
-  echo 40 >  /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
-  echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
-  echo 1 >   /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
+  echo 2    > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+  echo 4    > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
+  echo 68   > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
+  echo 40   > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
+  echo 100  > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
+  echo 1    > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
 fi
 
 # CPUQuiet Governor Settings
