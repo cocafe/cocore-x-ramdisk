@@ -2,6 +2,7 @@
 
 #<src>                                       <mnt_point>        <type>  <mnt_flags and options>                                     <fs_mgr_flags>
 /dev/block/bootdevice/by-name/userdata       /data              ext4    nosuid,nodev,noatime,barrier=1,noauto_da_alloc,discard      wait,check,encryptable=footer,resize
+/dev/block/bootdevice/by-name/userdata       /data              f2fs    data_flush,active_logs=2                                    wait,check,encryptable=footer
 /dev/block/bootdevice/by-name/apps_log       /rca               ext4    nosuid,nodev,noatime,noexec,barrier=1,discard               wait,check,formattable,notrim
 /dev/block/bootdevice/by-name/diag           /idd               ext4    nosuid,nodev,noatime,noexec,barrier=1,discard               wait,check,formattable,notrim
 /dev/block/bootdevice/by-name/Qnovo          /qns               ext4    nosuid,nodev,noatime,noexec,barrier=1,discard               wait,check,formattable,notrim
