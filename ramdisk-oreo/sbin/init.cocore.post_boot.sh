@@ -4,6 +4,8 @@ LOG=/init.log
 
 exec >> ${LOG} 2>&1
 
+echo init.cocore_post-boot: start
+
 if [ -e ${LOG} ]; then
   # Mark init log global readable
   chmod 0644 ${LOG}
