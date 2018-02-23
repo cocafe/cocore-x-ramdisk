@@ -21,31 +21,17 @@ fi
 /sbin/busybox fstrim -v /system
 
 #
-# CPUFreq Settings: board: msm8952, soc_id: 266
+# CPUFreq Settings:
+#     board: msm8952
+#     soc_id: 266
 #
 
-# Disable thermal & BCL core_control to update interactive gov settings
+# Disable thermal core control
 echo 0 > /sys/module/msm_thermal/core_control/enabled
-  for mode in /sys/devices/soc.0/qcom,bcl.*/mode
-do
-  echo -n disable > $mode
-done
 
-for hotplug_mask in /sys/devices/soc.0/qcom,bcl.*/hotplug_mask
-do
-  bcl_hotplug_mask=`cat $hotplug_mask`
-  echo 0 > $hotplug_mask
-done
-
-for hotplug_soc_mask in /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask
-do
-  bcl_soc_hotplug_mask=`cat $hotplug_soc_mask`
-  echo 0 > $hotplug_soc_mask
-done
-
-for mode in /sys/devices/soc.0/qcom,bcl.*/mode
-do
-  echo -n enable > $mode
+# Wake up all CPU cores, just in case
+for i in {0,1,2,3,4,5}; do
+  echo 1 > /sys/devices/system/cpu$i/online
 done
 
 # RCU threads: Set affinity (offload) to power cluster
@@ -68,9 +54,6 @@ echo 9 > /proc/sys/kernel/sched_upmigrate_min_nice
 # Set (super) packing parameters
 echo 1017600 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_freq
 echo 0 > /sys/devices/system/cpu/cpu4/sched_mostly_idle_freq
-
-# Disallow upmigrate for cgroup's tasks
-echo 1 > /dev/cpuctl/bg_non_interactive/cpu.upmigrate_discourage
 
 # HMP Scheudler Settings
 echo 200000 > /proc/sys/kernel/sched_freq_inc_notify
@@ -107,28 +90,6 @@ if [ -e /system/lib/modules/core_ctl.ko ]; then
   echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
   echo 1 >   /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
 fi
-
-# Re-Enable thermal & BCL core_control now
-echo 1 > /sys/module/msm_thermal/core_control/enabled
-for mode in /sys/devices/soc.0/qcom,bcl.*/mode
-do
-  echo -n disable > $mode
-done
-
-for hotplug_mask in /sys/devices/soc.0/qcom,bcl.*/hotplug_mask
-do
-  echo $bcl_hotplug_mask > $hotplug_mask
-done
-
-for hotplug_soc_mask in /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask
-do
-  echo $bcl_soc_hotplug_mask > $hotplug_soc_mask
-done
-
-for mode in /sys/devices/soc.0/qcom,bcl.*/mode
-do
-  echo -n enable > $mode
-done
 
 # CPUQuiet Governor Settings
 if [ -e /sys/devices/system/cpu/cpuquiet ]; then
