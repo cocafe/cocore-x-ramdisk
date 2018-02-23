@@ -1,0 +1,16 @@
+#!/system/bin/sh
+
+BLK_BOOT=/dev/block/bootdevice/by-name/boot
+
+if [ $# -eq 0 ]; then
+  echo "ddkernel [boot.img]"
+  exit 1
+fi
+
+if [ -f $1 ]; then
+  dd if=$1 of=${BLK_BOOT}
+else
+  echo "ddkernel: no such file: $1"
+fi
+
+exit 0
