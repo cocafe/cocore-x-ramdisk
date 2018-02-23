@@ -34,15 +34,15 @@ for i in {0,1,2,3,4,5}; do
   echo 1 > /sys/devices/system/cpu$i/online
 done
 
-# RCU threads: Set affinity (offload) to power cluster
+# RCU threads: Set affinity to offload RCU workload
 for i in {0,1,2,3,4,5}; do
-  RCU_PID=`ps -wef | grep "rcuop/$i" | cut -b 11-16`
+  RCU_PID=`pgrep "rcuop/$i"`
   taskset -a -p 01 ${RCU_PID}
 
-  RCU_PID=`ps -wef | grep "rcuob/$i" | cut -b 11-16`
+  RCU_PID=`pgrep "rcuob/$i"`
   taskset -a -p 01 ${RCU_PID}
 
-  RCU_PID=`ps -wef | grep "rcuos/$i" | cut -b 11-16`
+  RCU_PID=`pgrep "rcuos/$i"`
   taskset -a -p 01 ${RCU_PID}
 done
 
