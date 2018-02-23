@@ -1045,7 +1045,7 @@ case "$target" in
                 echo 0 > /proc/sys/kernel/sched_boost
 
                 # Override with SOMC tuning parameters for governor
-                /vendor/bin/sh /vendor/etc/init.sony.cpu_parameter_gov.sh
+                # /vendor/bin/sh /vendor/etc/init.sony.cpu_parameter_gov.sh
 
                 # Bring up all cores online
                 echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -1141,7 +1141,7 @@ case "$target" in
                 configure_memory_parameters
 
                 # Override with SOMC tuning parameters for scheduler and others
-                /vendor/bin/sh /vendor/etc/init.sony.cpu_parameter.sh
+                # /vendor/bin/sh /vendor/etc/init.sony.cpu_parameter.sh
 
             ;;
         esac
