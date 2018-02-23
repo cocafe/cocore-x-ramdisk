@@ -31,7 +31,7 @@ echo 0 > /sys/module/msm_thermal/core_control/enabled
 
 # Wake up all CPU cores, just in case
 for i in {0,1,2,3,4,5}; do
-  echo 1 > /sys/devices/system/cpu$i/online
+  echo 1 > /sys/devices/system/cpu/cpu$i/online
 done
 
 # RCU threads: Set affinity to offload RCU workload
