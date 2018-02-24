@@ -12,7 +12,7 @@ INS_DRMFIX64=/lib/libdrmfix/lib64/libdrmfix.so
 LIB_DRMFIX=/system/vendor/lib/libdrmfix.so
 LIB_DRMFIX64=/system/vendor/lib64/libdrmfix.so
 
-NO_DRMFIX=/system/libdrmfix_disable
+NO_DRMFIX=/system/var/libdrmfix_disable
 
 exec >> ${LOG} 2>&1
 
