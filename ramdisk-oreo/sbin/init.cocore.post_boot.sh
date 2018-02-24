@@ -78,25 +78,40 @@ echo "90 1747200:80" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_l
 echo 10000    > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
 echo 40000    > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
 
-# MSM Core Control Settings
-if [ -e /system/lib/modules/core_ctl.ko ]; then
-  insmod /system/lib/modules/core_ctl.ko
+# User defined: msm core_ctl enable or not
+CORE_CTL_ENA=/system/var/core_ctl_enable
 
-  # Power cluster
+if [ -e ${CORE_CTL_ENA} ]; then
+  echo hotplug driver: msm core_ctl
 
-  # Perf cluster
-  echo 2    > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-  echo 4    > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
-  echo 68   > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
-  echo 40   > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
-  echo 100  > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
-  echo 1    > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
-fi
+  if [ -e /system/lib/modules/core_ctl.ko ]; then
+    # MSM Core Control Settings
+    insmod /system/lib/modules/core_ctl.ko
 
-# CPUQuiet Governor Settings
-if [ -e /sys/devices/system/cpu/cpuquiet ]; then
-  echo 4 > /sys/devices/system/cpu/cpuquiet/nr_min_cpus
-  echo rqbalance > /sys/devices/system/cpu/cpuquiet/current_governor
+    # Power cluster
+    # ...
+
+    # Perf cluster
+    echo 2    > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+    echo 4    > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
+    echo 68   > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
+    echo 40   > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
+    echo 100  > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
+    echo 1    > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
+
+    # Disable CPUQuiet Governor
+    if [ -e /sys/devices/system/cpu/cpuquiet ]; then
+      echo userspace > /sys/devices/system/cpu/cpuquiet/current_governor
+    fi
+  fi
+else
+  echo hotplug driver: cpuquiet
+
+  # CPUQuiet Governor Settings
+  if [ -e /sys/devices/system/cpu/cpuquiet ]; then
+    echo 4 > /sys/devices/system/cpu/cpuquiet/nr_min_cpus
+    echo rqbalance > /sys/devices/system/cpu/cpuquiet/current_governor
+  fi
 fi
 
 #
