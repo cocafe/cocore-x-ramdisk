@@ -37,17 +37,17 @@ for i in {0,1,2,3,4,5}; do
 done
 
 # RCU threads: Set affinity to offload RCU workload
-RCU_CPUMASK=0f
-for i in {0,1,2,3,4,5}; do
-  RCU_PID=`pgrep "rcuop/$i"`
-  taskset -a -p ${RCU_CPUMASK} ${RCU_PID}
+# RCU_CPUMASK=0f
+# for i in {0,1,2,3,4,5}; do
+#   RCU_PID=`pgrep "rcuop/$i"`
+#   taskset -a -p ${RCU_CPUMASK} ${RCU_PID}
 
-  RCU_PID=`pgrep "rcuob/$i"`
-  taskset -a -p ${RCU_CPUMASK} ${RCU_PID}
+#   RCU_PID=`pgrep "rcuob/$i"`
+#   taskset -a -p ${RCU_CPUMASK} ${RCU_PID}
 
-  RCU_PID=`pgrep "rcuos/$i"`
-  taskset -a -p ${RCU_CPUMASK} ${RCU_PID}
-done
+#   RCU_PID=`pgrep "rcuos/$i"`
+#   taskset -a -p ${RCU_CPUMASK} ${RCU_PID}
+# done
 
 # Set cpu_boost parameters
 echo "0:1305600" > /sys/module/cpu_boost/parameters/input_boost_freq
