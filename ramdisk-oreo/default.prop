@@ -29,13 +29,13 @@ ro.usb.pid_suffix=1E8
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
-ro.bootimage.build.date=Tue Feb 6 05:00:31 CST 2018
-ro.bootimage.build.date.utc=1517864431
+ro.bootimage.build.date=Thu Mar 1 17:25:53 CST 2018
+ro.bootimage.build.date.utc=1519896353
 ro.bootimage.build.fingerprint=Sony/kugo/kugo:8.0.0/OPR1.170623.026/1:user/dev-keys
 #
 # VERSION_PROPERTIES
 #
 ro.semc.version.sw=1302-7793
-ro.semc.version.sw_revision=34.4.A.2.19
+ro.semc.version.sw_revision=34.4.A.2.32
 ro.semc.version.sw_variant=GLOBAL-LTE2A
 ro.semc.version.sw_type=user
