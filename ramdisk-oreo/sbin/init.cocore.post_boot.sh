@@ -90,11 +90,16 @@ if [ -e ${CORE_CTL_ENA} ]; then
   echo hotplug driver: msm core_ctl
 
   if [ -e /system/lib/modules/core_ctl.ko ]; then
+    # Disable CPUQuiet Governor
+    if [ -e /sys/devices/system/cpu/cpuquiet ]; then
+      echo userspace > /sys/devices/system/cpu/cpuquiet/current_governor
+    fi
+
     # MSM Core Control Settings
     insmod /system/lib/modules/core_ctl.ko
 
     # Power cluster
-    # ...
+    # ...always online
 
     # Perf cluster
     echo 2    > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
@@ -103,11 +108,6 @@ if [ -e ${CORE_CTL_ENA} ]; then
     echo 40   > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
     echo 100  > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
     echo 1    > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
-
-    # Disable CPUQuiet Governor
-    if [ -e /sys/devices/system/cpu/cpuquiet ]; then
-      echo userspace > /sys/devices/system/cpu/cpuquiet/current_governor
-    fi
   fi
 else
   echo hotplug driver: cpuquiet
