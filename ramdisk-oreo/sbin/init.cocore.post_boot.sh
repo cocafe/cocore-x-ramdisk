@@ -61,6 +61,10 @@ echo 0 > /sys/devices/system/cpu/cpu4/sched_mostly_idle_freq
 # HMP Scheudler Settings
 echo 200000 > /proc/sys/kernel/sched_freq_inc_notify
 
+# CPU Scaling Clock Settings
+echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 400000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+
 # CPU Governor Settings: power cluster
 echo 19000    > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
 echo 1017600  > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
